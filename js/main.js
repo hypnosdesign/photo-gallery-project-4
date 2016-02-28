@@ -8,7 +8,7 @@ var $image        = $('<img class="item-image">');
 var $iframe       = $('<iframe allowscriptaccess="always" frameborder="0" scrolling="no"></iframe>');
 var $captionTitle = $('<p class="title"></p>');
 var $captionDescription = $('<p class="description"></p>');
-var $captionOverlay     = $('<div class="caption-overlay"></div>')
+var $captionOverlay     = $('<div class="caption-overlay"></div>');
 var $controllers        = $('<div class="controllers">'+
                         '<img class="close" src="img/icons/close.svg">'+
                         '<img class="right" src="img/icons/right.svg">'+
@@ -95,13 +95,13 @@ $('#gallery a').click(function(e){
     $("#overlay").fadeOut(500, function(){
       $(this).remove();
     });
-  }) // end click close controller
+  }); // end click close controller
 
   //Show the overlay.
   $("#overlay").hide().fadeIn();
   $(".item-overlay").hide().fadeIn(200);
   $(".controllers").hide().fadeIn(600);
-}) // end click gallery a
+}); // end click gallery a
 
 
 
