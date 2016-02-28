@@ -25,6 +25,7 @@ header {
 	width: 100%;
 	top: 0;
 	padding-bottom: 1em;
+	padding-top: .4em;
 	z-index: 1;
 }
 
@@ -237,7 +238,7 @@ footer {
 /*	----------------------------------------
 	MEDIA QUERIES
    	----------------------------------------  */
-@media (min-width: 800px) {
+@media (min-width: 768px) {
 
 	ul#gallery {
 		max-width: 980px;
