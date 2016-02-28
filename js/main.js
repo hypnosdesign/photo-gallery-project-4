@@ -7,40 +7,41 @@ var $image = $('<img class="item-image">');
 var $iframe = $('<iframe allowscriptaccess="always" frameborder="0" scrolling="no"></iframe>');
 var $captionTitle = $('<p class="title"></p>');
 var $captionDescription = $('<p class="description"></p>');
+var $captionOverlay = $('<div class="caption-overlay"></div>')
 var $controllers = $('<div class="controllers">'+
                         '<img class="close" src="img/icons/close.svg">'+
                         '<img class="right" src="img/icons/right.svg">'+
                         '<img class="left" src="img/icons/left.svg">'+
                       '</div>');
-
+// all appends
 
 //An image to itemOverlay
 $itemOverlay.append($image);
-
 //An iframe to itemOverlay
 $itemOverlay.append($iframe);
 
+$itemOverlay.append($captionOverlay);
 //A caption title to itemOverlay
-$itemOverlay.append($captionTitle);
-
+$captionOverlay.append($captionTitle);
 //A caption description to itemOverlay
-$itemOverlay.append($captionDescription);
+$captionOverlay.append($captionDescription);
 
 // The controllers to item-overlay
 $itemOverlay.append($controllers);
 
 // Add itemOverlay to overlay
 $overlay.append($itemOverlay);
-
 //Add overlay
 $("body").append($overlay);
+
+// lightbox
 
 $('#gallery a').click(function(e){
   e.preventDefault();
 
   var itemLocation = $(this).attr("href");
   
-  //Update overlay with the image linked in the link
+  //Update overlay with the item linked in the link
   $image.attr("src", itemLocation);
   $iframe.attr("src", itemLocation);
 
@@ -49,10 +50,12 @@ $('#gallery a').click(function(e){
   $(".item-overlay").hide().fadeIn(100);
   $(".controllers").hide().fadeIn(3000);
   
-//Get caption description text and set caption
-var captionDescriptionText = $(this).children(".caption-description").text();
-$captionDescription.text(captionDescriptionText);
-  
+  //Get caption title text and set caption
+  var captionTitleText = $(this).find(".caption-title").text();
+  $captionTitle.text(captionTitleText);
+  //Get caption description text and set caption
+  var captionDescriptionText = $(this).find(".caption-description").text();
+  $captionDescription.text(captionDescriptionText);
 
 }) // end click gallery a
 

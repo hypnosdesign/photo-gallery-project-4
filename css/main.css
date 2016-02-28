@@ -128,8 +128,25 @@ li.item-gallery .caption:hover{
 	height: 0;
 }
 
-.item-overlay p {
+.caption-overlay {
 	color: #FFF;
+	position: absolute;
+	width: 100%;
+	top: 0;
+	font-family: "Droid Sans Mono", sans-serif;
+	padding: 10px 2em;
+	background: rgba(0,0,0,.6);
+	font-size: 80%;
+}
+
+.caption-overlay p {
+	padding: 0;
+	margin: 0;
+}
+
+.caption-overlay p.title {
+font-size: 1.2em;
+font-weight: 700;
 }
 
 /* Controllers*/
@@ -166,6 +183,10 @@ https://css-tricks.com/NetMag/FluidWidthVideo/Article-FluidWidthVideo.php */
 	left: 0;
 	width: 100%;
 	height: 100%;
+}
+
+.item-overlay iframe img {
+	max-width: 100%;
 }
 
 
