@@ -1,19 +1,65 @@
-
-
-
 /* Galleria (Gallery) 
 ***********************************************/
-
 // create overlay
+var $overlay = $('<div id="overlay"></div>');
+var $itemOverlay = $('<div class="item-overlay"></div>');
+var $image = $('<img class="item-image">');
+var $iframe = $('<iframe allowscriptaccess="always" frameborder="0" scrolling="no"></iframe>');
+var $captionTitle = $('<p class="title"></p>');
+var $captionDescription = $('<p class="description"></p>');
+var $controllers = $('<div class="controllers">'+
+                        '<img class="close" src="img/icons/close.svg">'+
+                        '<img class="right" src="img/icons/right.svg">'+
+                        '<img class="left" src="img/icons/left.svg">'+
+                      '</div>');
 
+
+//An image to itemOverlay
+$itemOverlay.append($image);
+
+//An iframe to itemOverlay
+$itemOverlay.append($iframe);
+
+//A caption title to itemOverlay
+$itemOverlay.append($captionTitle);
+
+//A caption description to itemOverlay
+$itemOverlay.append($captionDescription);
+
+// The controllers to item-overlay
+$itemOverlay.append($controllers);
+
+// Add itemOverlay to overlay
+$overlay.append($itemOverlay);
+
+//Add overlay
+$("body").append($overlay);
 
 $('#gallery a').click(function(e){
   e.preventDefault();
-})
 
-$('#overlay').on("click", function(){
-  $(this).css("display", "none");
-})
+  var itemLocation = $(this).attr("href");
+  
+  //Update overlay with the image linked in the link
+  $image.attr("src", itemLocation);
+  $iframe.attr("src", itemLocation);
+
+  //Show the overlay.
+  $("#overlay").show();
+  $(".item-overlay").hide().fadeIn(100);
+  $(".controllers").hide().fadeIn(3000);
+  
+//Get caption description text and set caption
+var captionDescriptionText = $(this).children(".caption-description").text();
+$captionDescription.text(captionDescriptionText);
+  
+
+}) // end click gallery a
+
+$(".controllers img.close").click(function(){
+    $("#overlay").hide();
+  }) // end click close controller
+
 
 
 
