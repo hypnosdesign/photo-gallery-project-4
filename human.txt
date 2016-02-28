@@ -1,0 +1,18 @@
+/* TEAM */
+                     
+Mattia Piano
+Twitter: @hypnosdesign  
+Location: Capoterra, Italy.
+				
+
+							
+/* THANKS */
+Dave
+                        
+
+                            
+/* ABOUT THIS PROJECT */
+           
+Year: 2016                          
+Techlogies: HTML5, CSS3, jQuery, Jascript
+Software: Sublime Text 3, GitHub Desktop

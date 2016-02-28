@@ -1,0 +1,124 @@
+/*	----------------------------------------
+	GLOBAL
+   	----------------------------------------  */
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background: #fafafa;
+	text-align: center;
+	font-family: Roboto, sans-serif;
+	padding: 0;
+	margin: 0;
+}
+
+header {
+	position: fixed;
+	background: #FFF;
+	margin: 0 auto;
+	width: 100%;
+	top: 0;
+	padding-bottom: 1em;
+	z-index: 1;
+}
+
+header h1 {
+	padding: .2em;
+	margin: 0;
+}
+
+
+input[id="search"] {
+	font-size: 16px;
+	padding: 10px;
+	width: 300px;
+	margin: 0 1em;
+	outline: none;
+	border: 1px solid #ddd;
+}
+
+input[id="search"]:focus {
+ outline: 2px solid black;
+ width: 310px;
+ transition: .2s linear;
+}
+
+
+
+/*	----------------------------------------
+	GALLERY
+   	----------------------------------------  */
+main { padding: 0 2em; }
+ul#gallery {
+	max-width: 100%;
+	margin: 8em 0 0;
+}
+li.item-gallery {
+	font-size: .9em;
+	display: inline-block;
+	position: relative;
+	margin-right: 10px;
+	margin-bottom: 20px;
+
+
+}
+li.item-gallery a {
+	max-width: 200px;
+	display: block;
+
+}
+
+/*
+li.item-gallery figure {}
+li.item-gallery figure img {}
+*/
+
+li.item-gallery figure figcaption p {
+	padding: 0;
+	margin: 0;
+}
+li.item-gallery figure figcaption p.caption-title {
+	padding-bottom: 4px;
+	font-weight: 700;
+	font-size: 1.1em;
+}
+li.item-gallery figure figcaption {
+	position: absolute;
+	bottom: 3px;
+	color: transparent;
+	background: transparent;
+	height: 200px;
+	padding: 2em;
+	transition: .4s linear;
+
+}
+li.item-gallery figure figcaption:hover{
+	color: #fcfcfc;
+	background: rgba(0,0,0,.7);
+}
+
+
+
+
+
+
+
+/*	----------------------------------------
+	FOOTER
+   	----------------------------------------  */
+footer {
+	font-size: 65%;
+}
+
+
+
+
+/*	----------------------------------------
+	UTILITIES
+   	----------------------------------------  */
+/*		micro clearfix by Nicolas Gallagher
+		http://nicolasgallagher.com/micro-clearfix-hack/ */
+
+.cf:before, .cf:after { content: " "; display: table; }
+.cf:after { clear: both; }
