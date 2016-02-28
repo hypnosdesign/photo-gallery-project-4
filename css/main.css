@@ -5,12 +5,17 @@
 	box-sizing: border-box;
 }
 
+html, body {
+		min-height: 100%;
+}
+
 body {
 	background: #fafafa;
 	text-align: center;
 	font-family: Roboto, sans-serif;
 	padding: 0;
 	margin: 0;
+
 }
 
 header {
@@ -49,41 +54,39 @@ input[id="search"]:focus {
 /*	----------------------------------------
 	GALLERY
    	----------------------------------------  */
+
 main { padding: 0 2em; }
+
 ul#gallery {
 	max-width: 100%;
 	margin: 8em 0 0;
 }
+
 li.item-gallery {
 	font-size: .9em;
 	display: inline-block;
 	position: relative;
 	margin-right: 10px;
 	margin-bottom: 20px;
-
-
 }
+
 li.item-gallery a {
 	max-width: 200px;
 	display: block;
-
 }
 
-/*
-li.item-gallery figure {}
-li.item-gallery figure img {}
-*/
-
-li.item-gallery figure figcaption p {
+li.item-gallery .caption p {
 	padding: 0;
 	margin: 0;
 }
-li.item-gallery figure figcaption p.caption-title {
+
+li.item-gallery .caption p.caption-title {
 	padding-bottom: 4px;
 	font-weight: 700;
 	font-size: 1.1em;
 }
-li.item-gallery figure figcaption {
+
+li.item-gallery .caption {
 	position: absolute;
 	bottom: 3px;
 	color: transparent;
@@ -93,14 +96,72 @@ li.item-gallery figure figcaption {
 	transition: .4s linear;
 
 }
-li.item-gallery figure figcaption:hover{
+li.item-gallery .caption:hover{
 	color: #fcfcfc;
 	background: rgba(0,0,0,.7);
 }
 
 
 
+/*	----------------------------------------
+	OVERLAY
+   	----------------------------------------  */
 
+#overlay {
+	background: rgba(0,0,0,.6);
+	position: fixed;
+	width: 100%;
+	min-height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 2;
+	text-align: center;
+}
+
+.item-overlay {
+	width: 76%;
+	margin: 4em auto 0; 
+	position: relative;
+	padding-bottom: 56.25%;  /*16:9 */
+	padding-top: 25px;
+	height: 0;
+}
+
+.item-overlay p {
+	color: #FFF;
+}
+
+/* fluid video iframe:
+https://css-tricks.com/NetMag/FluidWidthVideo/Article-FluidWidthVideo.php */
+.item-overlay iframe {
+
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.controllers img {
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	z-index: 3;
+	background: #fff;
+	padding: 5px;
+}
+
+.controllers img.close {
+	top: -10px;
+	right: -10px;
+	border-radius: 50%;
+	border: 2px solid #000;
+}
+
+.controllers img.right,
+.controllers img.left { top: 40%; border: 2px solid #000; }
+.controllers img.right { right: -30px; border-left: 10px solid #000;}
+.controllers img.left { left: -30px; border-right: 10px solid #000;}
 
 
 
@@ -108,9 +169,15 @@ li.item-gallery figure figcaption:hover{
 	FOOTER
    	----------------------------------------  */
 footer {
-	font-size: 65%;
+	font-size: 85%;
+	height: 100px;
+	width: 100%;
+	display: block;
+	position: relative;
+	bottom: 0;
+	background-color: #fff;
+	padding-top: 2em;
 }
-
 
 
 
