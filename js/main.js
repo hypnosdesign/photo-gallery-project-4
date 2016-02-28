@@ -1,5 +1,6 @@
 /* Galleria (Gallery) 
 ***********************************************/
+
 // create overlay
 var $overlay = $('<div id="overlay"></div>');
 var $itemOverlay = $('<div class="item-overlay"></div>');
@@ -13,13 +14,13 @@ var $controllers = $('<div class="controllers">'+
                         '<img class="right" src="img/icons/right.svg">'+
                         '<img class="left" src="img/icons/left.svg">'+
                       '</div>');
-// all appends
 
-//An image to itemOverlay
-$itemOverlay.append($image);
-//An iframe to itemOverlay
-$itemOverlay.append($iframe);
+function append(){
+  // all appends
 
+
+
+// Add captionOverlay
 $itemOverlay.append($captionOverlay);
 //A caption title to itemOverlay
 $captionOverlay.append($captionTitle);
@@ -33,37 +34,72 @@ $itemOverlay.append($controllers);
 $overlay.append($itemOverlay);
 //Add overlay
 $("body").append($overlay);
+}
+
 
 // lightbox
 
 $('#gallery a').click(function(e){
   e.preventDefault();
+  getLocalItem(this);
+  append();
 
-  var itemLocation = $(this).attr("href");
-  
-  //Update overlay with the item linked in the link
-  $image.attr("src", itemLocation);
-  $iframe.attr("src", itemLocation);
+  $('.left').click(function(e) { getPrevItem(); });
+  $('.right').click(function(e) { getNextItem(); });
 
-  //Show the overlay.
+  $(".controllers img.close").click(function(){
+    $("#overlay").remove();
+  }) // end click close controller
+
+    //Show the overlay.
   $("#overlay").show();
   $(".item-overlay").hide().fadeIn(100);
   $(".controllers").hide().fadeIn(3000);
-  
-  //Get caption title text and set caption
-  var captionTitleText = $(this).find(".caption-title").text();
-  $captionTitle.text(captionTitleText);
-  //Get caption description text and set caption
-  var captionDescriptionText = $(this).find(".caption-description").text();
-  $captionDescription.text(captionDescriptionText);
-
 }) // end click gallery a
 
-$(".controllers img.close").click(function(){
-    $("#overlay").hide();
-  }) // end click close controller
 
 
+/* Funzioni (Functions) 
+***********************************************/
+
+function getLocalItem (localItem) {  
+  thisItem = localItem;
+  var itemLocation = $(localItem).attr("href");
+     
+    if(itemLocation.indexOf("youtube") > -1){
+      //An iframe to itemOverlay
+      $iframe.attr("src", itemLocation);
+      $itemOverlay.append($iframe);
+      $('.item-image').remove();
+
+      } else if(itemLocation.indexOf("youtube") === -1){
+          //Update overlay with the item linked in the link
+    $image.attr("src", itemLocation);
+                //An image to itemOverlay
+        $itemOverlay.append($image);
+        $('iframe').remove();
+
+        } 
+  //Get caption title text and set caption
+    var captionTitleText = $(localItem).find(".caption-title").text();
+    $captionTitle.text(captionTitleText);
+  //Get caption description text and set caption
+    var captionDescriptionText = $(localItem).find(".caption-description").text();
+    $captionDescription.text(captionDescriptionText);
+}
+// end getLocalItem *********************************************
+
+function getPrevItem() {
+  $imageParent = $(thisItem).parent().prev();
+    thisItem = $($imageParent).children("a");
+      getLocalItem(thisItem);}
+// end getPrevItem **********************************************   
+
+function getNextItem() {
+  $imageParent = $(thisItem).parent().next();
+    thisItem = $($imageParent).children("a");
+      getLocalItem(thisItem);}
+// end getNextItem **********************************************  
 
 
 /* Barra di ricerca (Search bar) 
