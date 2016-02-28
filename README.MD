@@ -20,7 +20,7 @@ To complete this project, follow the instructions below. If you get stuck, ask a
 This could be a jQuery plugin that you find on the web, or code that you write yourself.
 
 
-7. [ ] Make sure to check your code is valid by running it through an HTML and CSS validator.
+7. [x] Make sure to check your code is valid by running it through an HTML and CSS validator.
 	- Links to the validators can be found in the Project Resources. This will help you spot any errors that might be in your code.
 	- There are a few exceptions that you don’t need to fix:
 		- Don’t worry about any warnings, we just need you to check any errors that might be there.
@@ -34,9 +34,9 @@ This could be a jQuery plugin that you find on the web, or code that you write y
 ##Extra Credit
 To get an "exceeds" rating, you can expand on the project in the following ways:
 
-1. [ ] Expand on the design in the mockup
+1. [x] Expand on the design in the mockup
 	-Make sure you include a thumbnail gallery, but add your own colors, fonts and other visual improvements.
 2. [x] Keyboard navigation for browsing photos.
-3. Support for additional media types like YouTube videos.
+3. [x] Support for additional media types like YouTube videos.
 4. [x] Write your own JavaScript code instead of using a jQuery plugin.
 5. [x] Add animation effects when filtering the gallery of photos.
